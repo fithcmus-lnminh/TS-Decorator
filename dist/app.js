@@ -32,4 +32,19 @@ Person = __decorate([
 ], Person);
 const per = new Person();
 console.log(per);
+class Product {
+    constructor(t, p) {
+        this.title = t;
+        this._price = p;
+    }
+    set price(val) {
+        if (val > 0)
+            this._price = val;
+        else
+            throw new Error("Invalid price!");
+    }
+    getPriceWithTax(tax) {
+        return this._price * (1 + tax);
+    }
+}
 //# sourceMappingURL=app.js.map

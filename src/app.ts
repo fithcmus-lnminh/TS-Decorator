@@ -13,7 +13,7 @@ function WithTemplate(template: string, hookId: string) {
 
     if (hookElement) {
       hookElement.innerHTML = template;
-      hookElement.querySelector("h1")!.textContent = p.name; //Minh
+      hookElement.querySelector("h1")!.textContent = p.name;
     }
   };
 }
@@ -31,3 +31,25 @@ class Person {
 const per = new Person();
 
 console.log(per);
+
+//------------------------------------------------------
+
+class Product {
+  title: string;
+  private _price: number;
+
+  //setter
+  set price(val: number) {
+    if (val > 0) this._price = val;
+    else throw new Error("Invalid price!");
+  }
+
+  constructor(t: string, p: number) {
+    this.title = t;
+    this._price = p;
+  }
+
+  getPriceWithTax(tax: number): number {
+    return this._price * (1 + tax);
+  }
+}
