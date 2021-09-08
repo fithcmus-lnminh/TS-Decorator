@@ -34,7 +34,13 @@ console.log(per);
 
 //------------------------------------------------------
 
+//Property Decorator
+function Log(target: any, propertyName: string | Symbol) {
+  console.log(target, propertyName);
+}
+
 class Product {
+  @Log
   title: string;
   private _price: number;
 

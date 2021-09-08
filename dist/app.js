@@ -32,6 +32,9 @@ Person = __decorate([
 ], Person);
 const per = new Person();
 console.log(per);
+function Log(target, propertyName) {
+    console.log(target, propertyName);
+}
 class Product {
     constructor(t, p) {
         this.title = t;
@@ -47,4 +50,7 @@ class Product {
         return this._price * (1 + tax);
     }
 }
+__decorate([
+    Log
+], Product.prototype, "title", void 0);
 //# sourceMappingURL=app.js.map
